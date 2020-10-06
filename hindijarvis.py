@@ -7,6 +7,7 @@ from io import BytesIO
 import webbrowser
 
 
+#Function to produce audio
 def sayword():
 
     r = sr.Recognizer()
@@ -19,6 +20,7 @@ def sayword():
     return text
 
 
+#function to play sound in hindi language using pygame package.
 def say(text):
     tts = gTTS(text=text, lang='hi')
     fp = BytesIO()
@@ -38,7 +40,12 @@ query = sayword()
 print("listening...")
 print(query)
 
+#If condition to check what user has said
 if "यूट्यूब" in query:
     say("यूट्यूब खुल रहा है")
     open_google = webbrowser.get('windows-default').open('https://youtube.com')
+    
+if "गुगल" in query:
+    say("गूगल खुल रहा है")
+    open_google = webbrowser.get('windows-default').open('https://google.com')
 
